@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubuntu Youth Impact • Ensemble pour l’impact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
+        :root {
+            --black: #0A0A0A;
+            --orange: #F97316;
+            --gold: #F59E0B;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.05;
+        }
+
+        .nav-active {
+            color: #F97316;
+            position: relative;
+        }
+        
+        .nav-active:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #F97316, #F59E0B);
+        }
+
+        .section-header {
+            font-size: 2.25rem;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+
+        .premium-shadow {
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+
+        .african-gradient {
+            background: linear-gradient(135deg, #0A0A0A 0%, #1A120B 100%);
+        }
+
+        .orange-accent {
+            color: #F97316;
+        }
+
+        .logo-container img {
+            max-height: 68px;
+            width: auto;
+        }
+
+        .impact-stat {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-scrolled {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(10, 10, 10, 0.65), rgba(10, 10, 10, 0.75)), url('https://picsum.photos/id/1011/2000/1200');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .program-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), 
+                       box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .value-card {
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .nav-link {
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #F97316;
+        }
+
+        .ubuntu-orange {
+            color: #F97316;
+        }
+
+        .gold-gradient {
+            background: linear-gradient(90deg, #F97316, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modern-grid {
+            background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill-rule=%22evenodd%22%3E%3Cpath fill=%22%231A120B%22 fill-opacity=%22006%22 d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-10V8h-2v16h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 6v-4H4v4H0v2h4v4h2V8h4V6H6z%22/%3E%3C/g%3E%3C/svg%27');
+            background-size: 60px 60px;
+        }
+    </style>
+</head>
+<body class="bg-[#0A0A0A] text-white overflow-x-hidden">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0A0A0A]/95 border-b border-white/10">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <div class="logo-container">
+                        <img src="https://dvxrhkgloakisnvqoxgl.supabase.co/storage/v1/object/sign/images/inputs/1787601124166_z221lzy0w.jpg?token=eyJraWQiOiI0NWE1YWU1ZS0xNzg4LTRiMWYtYWM5OC1hMjgwNmQ2OTM4ZWMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvaW5wdXRzLzE3ODc2MDExMjQxNjZfejIyMWx6eTB3LmpwZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODc2MjUyMzcsImV4cCI6MTgxOTE2MTIzN30.PvwdE1OPtoCgE31SFF5igirBi-SMaNIq7j7xHgyYzpE" 
+                             alt="Ubuntu Youth Impact Logo" class="h-11 w-auto">
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="#accueil" class="nav-link text-white">Accueil</a>
+                    <a href="#apropos" class="nav-link text-white">À propos</a>
+                    <a href="#programmes" class="nav-link text-white">Programmes</a>
+                    <a href="#impact" class="nav-link text-white">Impact</a>
+                    <a href="#actualites" class="nav-link text-white">Actualités</a>
+                    <a href="#partenaires" class="nav-link text-white">Partenaires</a>
+                    <a href="#contact" class="nav-link text-white">Contact</a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-3">
+                    <button onclick="showJoinModal()"
+                            class="px-5 py-2.5 text-sm font-semibold rounded-full bg-white text-[#0A0A0A] hover:bg-[#F97316] hover:text-white transition-colors">
+                        Rejoindre
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0A0A0A] border-t border-white/10 px-6 py-4">
+            <div class="flex flex-col gap-y-3 text-sm">
+                <a href="#accueil" class="py-2 nav-link">Accueil</a>
+                <a href="#apropos" class="py-2 nav-link">À propos</a>
+                <a href="#programmes" class="py-2 nav-link">Programmes</a>
+                <a href="#impact" class="py-2 nav-link">Impact</a>
+                <a href="#actualites" class="py-2 nav-link">Actualités</a>
+                <a href="#partenaires" class="py-2 nav-link">Partenaires</a>
+                <a href="#contact" class="py-2 nav-link">Contact</a>
+                <button onclick="showJoinModal()" 
+                        class="mt-2 w-full py-3 text-sm font-semibold bg-white text-[#0A0A0A] rounded-full">
+                    Rejoindre le mouvement
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="accueil" class="hero-bg pt-20 min-h-[100dvh] flex items-center relative">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-12 pt-12 pb-16">
+            <div class="max-w-3xl">
+                <!-- Logo in Hero -->
+                <div class="mb-8">
+                    <img src="https://dvxrhkgloakisnvqoxgl.supabase.co/storage/v1/object/sign/images/inputs/1787601124166_z221lzy0w.jpg?token=eyJraWQiOiI0NWE1YWU1ZS0xNzg4LTRiMWYtYWM5OC1hMjgwNmQ2OTM4ZWMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvaW5wdXRzLzE3ODc2MDExMjQxNjZfejIyMWx6eTB3LmpwZyIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODc2MjUyMzcsImV4cCI6MTgxOTE2MTIzN30.PvwdE1OPtoCgE31SFF5igirBi-SMaNIq7j7xHgyYzpE" 
+                         alt="Ubuntu Youth Impact Logo" class="h-16 md:h-20 w-auto">
+                </div>
+                
+                <div class="mb-3">
+                    <span class="inline-block px-4 py-1.5 text-xs tracking-[2px] font-semibold bg-white/10 text-white rounded-full border border-white/20">ESSÉMBLÉ POUR L’IMPACT</span>
+                </div>
+                
+                <h1 class="text-6xl md:text-7xl leading-[1.05] font-bold tracking-tighter mb-6 heading-serif">
+                    La jeunesse africaine<br>qui transforme<br>les communautés
+                </h1>
+                
+                <p class="max-w-md text-lg text-white/80 mb-9">
+                    Ubuntu Youth Impact rassemble les jeunes leaders africains pour créer un impact durable dans leurs communautés.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="document.getElementById('apropos').scrollIntoView({ behavior: 'smooth' })" 
+                            class="px-8 py-4 rounded-full bg-white text-[#0A0A0A] font-semibold flex items-center justify-center gap-x-2 hover:bg-[#F97316] hover:text-white transition-all text-sm tracking-wide">
+                        <span>Découvrir notre mission</span>
+                    </button>
+                    <button onclick="showJoinModal()" 
+                            class="px-8 py-4 rounded-full border border-white/40 hover:bg-white/10 font-semibold flex items-center justify-center gap-x-2 text-sm tracking-wide transition-all">
+                        <span>Rejoindre le mouvement</span>
+                    </button>
+                </div>
+                
+                <div class="mt-10 flex items-center gap-x-4">
+                    <div class="flex -space-x-2">
+                        <div class="w-8 h-8 rounded-full border border-white overflow-hidden ring-1 ring-white/20"><img src="https://picsum.photos/id/1005/32/32" class="w-full h-full object-cover"></div>
+                        <div class="w-8 h-8 rounded-full border border-white overflow-hidden ring-1 ring-white/20"><img src="https://picsum.photos/id/1009/32/32" class="w-full h-full object-cover"></div>
+                        <div class="w-8 h-8 rounded-full border border-white overflow-hidden ring-1 ring-white/20"><img src="https://picsum.photos/id/1012/32/32" class="w-full h-full object-cover"></div>
+                    </div>
+                    <span class="text-xs text-white/70">+12 450 jeunes engagés</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="apropos" class="max-w-screen-2xl mx-auto px-6 md:px-12 pt-20 pb-16">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7">
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-[#F97316] mb-3">QUI SOMMES-NOUS</div>
+                <h2 class="section-header mb-6">Une communauté de jeunes leaders africains</h2>
+                <div class="prose prose-invert text-white/80 max-w-xl">
+                    <p class="mb-4">Fondée en 2018, Ubuntu Youth Impact est une organisation panafricaine qui mobilise, forme et accompagne les jeunes de 18 à 35 ans dans la mise en œuvre de projets à fort impact social, économique et environnemental.</p>
+                    <p>Notre approche repose sur le concept d'Ubuntu : « Je suis parce que nous sommes ».</p>
+                </div>
+            </div>
+            <div class="md:col-span-5">
+                <div class="bg-zinc-900 rounded-3xl p-8 border border-white/10">
+                    <div class="flex items-center gap-x-4 mb-6">
+                        <div>
+                            <div class="text-4xl font-bold">28</div>
+                            <div class="text-xs tracking-widest text-white/60">PAYS</div>
+                        </div>
+                        <div class="h-9 w-px bg-white/20"></div>
+                        <div>
+                            <div class="text-4xl font-bold">12450</div>
+                            <div class="text-xs tracking-widest text-white/60">MEMBRES ACTIFS</div>
+                        </div>
+                    </div>
+                    <div class="text-sm text-white/70">Présents dans toute l’Afrique et dans la diaspora.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTRE VISION -->
+    <section class="bg-zinc-900 py-16">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-12">
+            <div class="max-w-2xl">
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-[#F97316] mb-3">NOTRE VISION</div>
+                <h2 class="section-header text-5xl">Une Afrique où chaque jeune est un acteur du changement.</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTRE MISSION -->
+    <section id="mission" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-20">
+        <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+            <div>
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-[#F97316] mb-4">NOTRE MISSION</div>
+                <h3 class="text-4xl leading-tight font-bold mb-5">Former, connecter et amplifier l’impact des jeunes leaders africains.</h3>
+            </div>
+            <div class="text-white/75 text-[15px] leading-relaxed">
+                Nous développons des programmes de leadership, d’entrepreneuriat social et de citoyenneté active qui permettent aux jeunes de concevoir et de mener des projets concrets dans leurs communautés.
+            </div>
+        </div>
+    </section>
+
+    <!-- NOS PROGRAMMES -->
+    <section id="programmes" class="max-w-screen-2xl mx-auto px-6 md:px-12 pb-20">
+        <div class="flex items-end justify-between mb-10">
+            <div>
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-[#F97316]">NOS PROGRAMMES</div>
+                <h2 class="section-header">Des parcours d'impact</h2>
+            </div>
+            <a href="#" class="hidden md:flex items-center text-sm font-medium text-[#F97316]">Voir tous les programmes <i class="ml-2 fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Program Cards -->
+            <div class="program-card bg-zinc-900 border border-white/10 rounded-3xl p-7">
+                <div class="w-11 h-11 flex items-center justify-center bg-[#F97316]/10 text-[#F97316] rounded-2xl mb-6">
+                    <i class="fa-solid fa-graduation-cap text-2xl"></i>
+                </div>
+                <h4 class="font-semibold text-2xl mb-2">Ubuntu Leadership Academy</h4>
+                <p class="text-white/70 text-sm mb-5">Formation intensive de 6 mois pour 150 jeunes leaders par an.</p>
+                <div class="flex items-center text-xs"><span class="px-3 py-1 bg-white/10 rounded-full">28 pays</span></div>
+            </div>
+            
+            <div class="program-card bg-zinc-900 border border-white/10 rounded-3xl p-7">
+                <div class="w-11 h-11 flex items-center justify-center bg-[#F97316]/10 text-[#F97316] rounded-2xl mb-6">
+                    <i class="fa-solid fa-lightbulb text-2xl"></i>
+                </div>
+                <h4 class="font-semibold text-2xl mb-2">Impact Lab</h4>
+                <p class="text-white/70 text-sm mb-5">Incubateur de projets sociaux et entrepreneuriaux avec financement jusqu’à 15 000 €.</p>
+                <div class="flex items-center text-xs"><span class="px-3 py-1 bg-white/10 rounded-full">312 projets financés</span></div>
+            </div>
+            
+            <div class="program-card bg-zinc-900 border border-white/10 rounded-3xl p-7">
+                <div class="w-11 h-11 flex items-center justify-center bg-[#F97316]/10 text-[#F97316] rounded-2xl mb-6">
+                    <i class="fa-solid fa-globe text-2xl"></i>
+                </div>
+                <h4 class="font-semibold text-2xl mb-2">African Youth Summit</h4>
+                <p class="text-white/70 text-sm mb-5">Le plus grand rassemblement annuel de jeunes leaders africains.</p>
+                <div class="flex items-center text-xs"><span class="px-3 py-1 bg-white/10 rounded-full">4500 participants en 2024</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTRE IMPACT -->
+    <section id="impact" class="bg-zinc-900 py-16">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-12">
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-[#F97316]">NOTRE IMPACT</div>
+                <h2 class="section-header mt-2">Des résultats concrets</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="impact-stat text-center bg-[#0A0A0A] p-7 rounded-3xl border border-white/10">
+                    <div id="stat1" class="text-5xl font-bold text-[#F97316]">12450</div>
+                    <div class="mt-1 text-sm text-white/70">Jeunes formés</div>
+                </div>
+                <div class="impact-stat text-center bg-[#0A0A0A] p-7 rounded-3xl border border-white/10">
+                    <div id="stat2" class="text-5xl font-bold text-[#F97316]">312</div>
+                    <div class="mt-1 text-sm text-white/70">Projets lancés</div>
+                </div>
+                <div class="impact-stat text-center bg-[#0A0A0A] p-7 rounded-3xl border border-white/10">
+                    <div id="stat3" class="text-5xl font-bold text-[#F97316]">87</div>
+                    <div class="mt-1 text-sm text-white/70">Communautés impactées</div>
+                </div>
+                <div class="impact-stat text-center bg-[#0A0A0A] p-7 rounded-3xl border border-white/10">
+                    <div id="stat4" class="text-5xl font-bold text-[#F97316]">4.2M</div>
+                    <div class="mt-1 text-sm text-white/70">Bénéficiaires indirects</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOS VALEURS -->
+    <section class="max-w-screen-2xl mx-auto px-6 md:px-12 py-20">
+        <div class="max-w-xl mb-10">
+            <div class="uppercase tracking-[3px] text-xs font-semibold text-[#F97316]">NOS VALEURS</div>
+            <h2 class="section-header">Ce qui nous unit</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-4">
+            <div class="value-card bg-zinc-900 border border-white/10 p-6 rounded-3xl">
+                <i class="fa-solid fa-hands-helping text-[#F97316] text-3xl mb-4"></i>
+                <h4 class="font-semibold">Ubuntu</h4>
+                <p class="text-sm text-white/70 mt-1">Nous sommes interconnectés.</p>
+            </div>
+            <div class="value-card bg-zinc-900 border border-white/10 p-6 rounded-3xl">
+                <i class="fa-solid fa-globe-africa text-[#F97316] text-3xl mb-4"></i>
+                <h4 class="font-semibold">Excellence africaine</h4>
+                <p class="text-sm text-white/70 mt-1">Nous célébrons notre identité et nos savoirs.</p>
+            </div>
+            <div class="value-card bg-zinc-900 border border-white/10 p-6 rounded-3xl">
+                <i class="fa-solid fa-handshake text-[#F97316] text-3xl mb-4"></i>
+                <h4 class="font-semibold">Intégrité</h4>
+                <p class="text-sm text-white/70 mt-1">Transparence et responsabilité.</p>
+            </div>
+            <div class="value-card bg-zinc-900 border border-white/10 p-6 rounded-3xl">
+                <i class="fa-solid fa-rocket text-[#F97316] text-3xl mb-4"></i>
+                <h4 class="font-semibold">Audace</h4>
+                <p class="text-sm text-white/70 mt-1">Nous agissons avec courage et innovation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOS ACTIVITÉS -->
+    <section class="max-w-screen-2xl mx-auto px-6 md:px-12 py-10">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
+            <div>
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-[#F97316]">NOS ACTIVITÉS</div>
+                <h2 class="section-header">Engagement sur le terrain</h2>
+            </div>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="rounded-3xl overflow-hidden border border-white/10 group">
+                <img src="https://picsum.photos/id/1016/600/380" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" alt="Jeunes leaders en formation">
+                <div class="p-5">
+                    <div class="font-semibold">Ateliers de leadership</div>
+                    <div class="text-xs text-white/60">12 450 participants • 2024</div>
+                </div>
+            </div>
+            <div class="rounded-3xl overflow-hidden border border-white/10 group">
+                <img src="https://picsum.photos/id/1006/600/380" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" alt="Projet communautaire">
+                <div class="p-5">
+                    <div class="font-semibold">Projets communautaires</div>
+                    <div class="text-xs text-white/60">312 initiatives réalisées</div>
+                </div>
+            </div>
+            <div class="rounded-3xl overflow-hidden border border-white/10 group">
+                <img src="https://picsum.photos/id/1033/600/380" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" alt="Sommet africain">
+                <div class="p-5">
+                    <div class="font-semibold">African Youth Summit 2024</div>
+                    <div class="text-xs text-white/60">Kigali, Rwanda</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTUALITÉS -->
+    <section id="actualites" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-20 border-t border-white/10">
+        <div class="flex justify-between items-end mb-10">
+            <div>
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-[#F97316]">ACTUALITÉS &amp; HISTOIRES</div>
+                <h2 class="section-header">Histoires d'impact</h2>
+            </div>
+            <button class="text-sm font-medium hidden md:block text-[#F97316]">Toutes les actualités →</button>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden">
+                <img src="https://picsum.photos/id/1009/600/240" class="w-full h-48 object-cover" alt="Jeune entrepreneure">
+                <div class="p-6">
+                    <div class="text-xs text-[#F97316] font-medium">ENTREPRENEURIAT</div>
+                    <h4 class="font-semibold mt-1 mb-3">Aminata Diallo lance son entreprise sociale au Sénégal</h4>
+                    <p class="text-sm text-white/70">Son projet de recyclage plastique a déjà créé 47 emplois.</p>
+                </div>
+            </div>
+            
+            <div class="bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden">
+                <img src="https://picsum.photos/id/201/600/240" class="w-full h-48 object-cover" alt="Jeunes en action">
+                <div class="p-6">
+                    <div class="text-xs text-[#F97316] font-medium">CITOYENNETÉ</div>
+                    <h4 class="font-semibold mt-1 mb-3">Le programme de mentorat atteint 5000 jeunes</h4>
+                    <p class="text-sm text-white/70">Un impact durable dans 19 pays africains.</p>
+                </div>
+            </div>
+            
+            <div class="bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden">
+                <img src="https://picsum.photos/id/251/600/240" class="w-full h-48 object-cover" alt="Sommet">
+                <div class="p-6">
+                    <div class="text-xs text-[#F97316] font-medium">ÉVÉNEMENT</div>
+                    <h4 class="font-semibold mt-1 mb-3">Le prochain Youth Summit annoncé à Accra</h4>
+                    <p class="text-sm text-white/70">Plus de 6000 jeunes attendus en novembre 2025.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTENAIRES -->
+    <section id="partenaires" class="max-w-screen-2xl mx-auto px-6 md:px-12 py-16 border-t border-white/10">
+        <div class="text-center mb-10">
+            <div class="uppercase tracking-[3px] text-xs font-semibold text-[#F97316]">ILS NOUS FONT CONFIANCE</div>
+        </div>
+        <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-75">
+            <div class="text-xl font-semibold">UNICEF</div>
+            <div class="text-xl font-semibold">African Union</div>
+            <div class="text-xl font-semibold">Mastercard Foundation</div>
+            <div class="text-xl font-semibold">Google.org</div>
+            <div class="text-xl font-semibold">USAID</div>
+            <div class="text-xl font-semibold">GIZ</div>
+        </div>
+    </section>
+
+    <!-- REJOINDRE -->
+    <section class="max-w-screen-2xl mx-auto px-6 md:px-12 py-16">
+        <div class="bg-gradient-to-br from-zinc-900 to-black border border-white/10 rounded-3xl p-10 md:p-14 text-center">
+            <div class="max-w-md mx-auto">
+                <h2 class="text-4xl font-bold mb-3">Prêt à faire partie du changement ?</h2>
+                <p class="text-white/70 mb-8">Rejoignez plus de 12 000 jeunes qui transforment l'Afrique chaque jour.</p>
+                
+                <button onclick="showJoinModal()" 
+                        class="px-9 py-4 bg-white text-[#0A0A0A] font-semibold rounded-full hover:bg-[#F97316] hover:text-white transition-all">
+                    Rejoindre Ubuntu Youth Impact
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-screen-2xl mx-auto px-6 md:px-12 pb-20">
+        <div class="max-w-xl mx-auto">
+            <div class="text-center mb-8">
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-[#F97316]">CONTACT</div>
+                <h2 class="section-header">Parlons ensemble</h2>
+            </div>
+            
+            <form id="contact-form" class="space-y-4" onsubmit="submitContactForm(event)">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <input type="text" placeholder="Prénom" class="w-full bg-zinc-900 border border-white/20 focus:border-[#F97316] text-white px-5 py-3.5 rounded-2xl outline-none" required>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Nom" class="w-full bg-zinc-900 border border-white/20 focus:border-[#F97316] text-white px-5 py-3.5 rounded-2xl outline-none" required>
+                    </div>
+                </div>
+                <div>
+                    <input type="email" placeholder="Adresse email" class="w-full bg-zinc-900 border border-white/20 focus:border-[#F97316] text-white px-5 py-3.5 rounded-2xl outline-none" required>
+                </div>
+                <div>
+                    <textarea placeholder="Votre message" rows="4" class="w-full bg-zinc-900 border border-white/20 focus:border-[#F97316] text-white px-5 py-3.5 rounded-3xl outline-none resize-y" required></textarea>
+                </div>
+                <button type="submit" 
+                        class="w-full py-4 bg-[#F97316] hover:bg-[#F59E0B] transition-colors font-semibold rounded-2xl">
+                    Envoyer le message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 py-8 px-6 md:px-12">
+        <div class="max-w-screen-2xl mx-auto text-xs text-white/50 flex flex-col md:flex-row justify-between items-center gap-y-3">
+            <div>© 2025 Ubuntu Youth Impact. Tous droits réservés.</div>
+            <div class="flex gap-x-5">
+                <div>Mentions légales</div>
+                <div>Confidentialité</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Join Modal -->
+    <div id="join-modal" onclick="hideJoinModal()" class="hidden fixed inset-0 bg-black/80 z-[99] flex items-center justify-center">
+        <div onclick="event.stopImmediatePropagation()" class="bg-zinc-900 border border-white/10 w-full max-w-md mx-4 rounded-3xl p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-semibold text-2xl">Rejoindre le mouvement</h3>
+                <button onclick="hideJoinModal()" class="text-xl text-white/70 hover:text-white">×</button>
+            </div>
+            
+            <form id="join-form" onsubmit="submitJoinForm(event)">
+                <div class="space-y-4">
+                    <input type="text" placeholder="Prénom et nom" class="w-full bg-zinc-800 border border-white/20 px-5 py-3 rounded-2xl text-sm" required>
+                    <input type="email" placeholder="Email professionnel" class="w-full bg-zinc-800 border border-white/20 px-5 py-3 rounded-2xl text-sm" required>
+                    <input type="text" placeholder="Pays / Ville" class="w-full bg-zinc-800 border border-white/20 px-5 py-3 rounded-2xl text-sm" required>
+                    
+                    <select class="w-full bg-zinc-800 border border-white/20 px-5 py-3 rounded-2xl text-sm" required>
+                        <option value="">Je suis...</option>
+                        <option>Étudiant</option>
+                        <option>Jeune professionnel</option>
+                        <option>Entrepreneur</option>
+                        <option>Acteur associatif</option>
+                    </select>
+                    
+                    <button type="submit" class="mt-3 w-full py-3.5 bg-[#F97316] hover:bg-[#F59E0B] font-semibold rounded-2xl transition-colors">
+                        Envoyer ma candidature
+                    </button>
+                    
+                    <p class="text-center text-xs text-white/50">Nous vous contacterons sous 5 jours.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#F97316');
+        }
+        
+        // Navbar scroll effect
+        function initNavbar() {
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('nav-scrolled');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                }
+            });
+            
+            // Mobile menu
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                
+                const icon = mobileBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+            
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        }
+        
+        // Animated counters
+        function animateCounters() {
+            const stats = [
+                { id: 'stat1', end: 12450, duration: 1800 },
+                { id: 'stat2', end: 312, duration: 1600 },
+                { id: 'stat3', end: 87, duration: 1400 },
+                { id: 'stat4', end: 4200000, duration: 2000, format: true }
+            ];
+            
+            stats.forEach(stat => {
+                const element = document.getElementById(stat.id);
+                if (!element) return;
+                
+                const start = 0;
+                const increment = stat.end / (stat.duration / 16);
+                let current = start;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    
+                    if (current >= stat.end) {
+                        clearInterval(timer);
+                        if (stat.format) {
+                            element.textContent = (stat.end / 1000000).toFixed(1) + 'M';
+                        } else {
+                            element.textContent = stat.end.toLocaleString();
+                        }
+                    } else {
+                        if (stat.format) {
+                            element.textContent = (current / 1000000).toFixed(1) + 'M';
+                        } else {
+                            element.textContent = Math.floor(current).toLocaleString();
+                        }
+                    }
+                }, 16);
+            });
+        }
+        
+        // Modal functions
+        function showJoinModal() {
+            document.getElementById('join-modal').classList.remove('hidden');
+            document.getElementById('join-modal').classList.add('flex');
+        }
+        
+        function hideJoinModal() {
+            const modal = document.getElementById('join-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+        
+        // Form submissions
+        function submitJoinForm(e) {
+            e.preventDefault();
+            const form = e.target;
+            const originalText = form.querySelector('button').innerHTML;
+            
+            const btn = form.querySelector('button');
+            btn.innerHTML = 'Candidature envoyée ✓';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                hideJoinModal();
+                showSuccessToast("Merci ! Votre candidature a bien été reçue.");
+                form.reset();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 1600);
+        }
+        
+        function submitContactForm(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = 'Message envoyé ✓';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                showSuccessToast("Nous vous répondrons très prochainement.");
+                e.target.reset();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 1400);
+        }
+        
+        function showSuccessToast(message) {
+            const toast = document.createElement('div');
+            toast.className = `fixed bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900 border border-white/20 px-6 py-4 rounded-2xl shadow-xl flex items-center gap-x-3 text-sm z-[999]`;
+            toast.innerHTML = `
+                <i class="fa-solid fa-check-circle text-[#F97316]"></i>
+                <span>${message}</span>
+            `;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.transition = 'all 0.3s ease';
+                toast.style.opacity = '0';
+                setTimeout(() => toast.parentNode.removeChild(toast), 300);
+            }, 3800);
+        }
+        
+        // Scroll animations for sections
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = '0.98';
+                section.style.transform = 'translateY(10px)';
+                section.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                observer.observe(section);
+            });
+            
+            // Trigger counters when impact section is visible
+            const impactSection = document.getElementById('impact');
+            if (impactSection) {
+                const impactObserver = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        animateCounters();
+                        impactObserver.disconnect();
+                    }
+                }, { threshold: 0.4 });
+                impactObserver.observe(impactSection);
+            }
+        }
+        
+        // Smooth scroll for anchor links
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+        
+        // Initialize everything
+        function initializeWebsite() {
+            initializeTailwind();
+            initNavbar();
+            initScrollAnimations();
+            initSmoothScroll();
+            
+            // Keyboard escape for modal
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const modal = document.getElementById('join-modal');
+                    if (!modal.classList.contains('hidden')) {
+                        modal.classList.remove('flex');
+                        modal.classList.add('hidden');
+                    }
+                }
+            });
+            
+            // Easter egg: clicking logo scrolls to top
+            const logo = document.querySelector('.logo-container');
+            if (logo) {
+                logo.style.cursor = 'pointer';
+                logo.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // Make sure all images have proper alt attributes (accessibility)
+            console.log('%c[Ubuntu Youth Impact] Site fully initialized and ready.', 'color:#555');
+        }
+        
+        window.onload = initializeWebsite;
+    </script>
+</body>
+</html>
